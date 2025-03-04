@@ -1,7 +1,6 @@
 from langchain.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_community.utilities import WikipediaAPIWrapper #此处由于网络原因无法访问
-import os
 import streamlit
 import openai
 
@@ -57,5 +56,3 @@ def generate_script(subject, video_length, creativity, target_audience, api_key)
                                              "people":target_audience or "所有人", "wikipedia_search":search_result}).content
 
     return search_result, title, script_content #返回最终需要的结果
-
-#print(generate_script("Sora模型", 1, 0.7, "年轻人",os.getenv("OPENAI_API_KEY")))
